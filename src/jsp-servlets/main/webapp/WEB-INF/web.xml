@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<jsp-config>
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<el-ignored>false</el-ignored>
+		</jsp-property-group>
+	</jsp-config>
+	<listener>
+		<listener-class>ducky.listeners.WebsiteSession</listener-class>
+	</listener>
+	<session-config>
+		<session-timeout>15</session-timeout>
+	</session-config>
+
+	<context-param>
+		<param-name>account</param-name>
+		<param-value>ducky</param-value>
+	</context-param>
+
+
+	<context-param>
+		<param-name>password</param-name>
+		<param-value>2013</param-value>
+	</context-param>
+
+
+	<!-- Start servlet -->
+	<servlet>
+		<servlet-name>Hello World</servlet-name>
+		<servlet-class>ducky.servlets.HelloWorl</servlet-class>
+		<init-param>
+			<param-name>song</param-name>
+			<param-value>I am yours</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Hello World</servlet-name>
+		<url-pattern>/hello</url-pattern>
+	</servlet-mapping>
+
+
+	
+
+
+
+	<servlet>
+		<servlet-name>Authentication</servlet-name>
+		<servlet-class>ducky.servlets.Authentication</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Authentication</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>LogOut</servlet-name>
+		<servlet-class>ducky.models.LogOut</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LogOut</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- <servlet>
+		<servlet-name>AddControl</servlet-name>
+		<servlet-class>ducky.servlets.AddControl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddControl</servlet-name>
+		<url-pattern>/add</url-pattern>
+	</servlet-mapping> -->
+	
+
+	<!-- End servlet -->
+
+	<!-- Start JSP -->
+	<servlet>
+		<servlet-name>Sample JSP</servlet-name>
+		<jsp-file>/process/sample.jsp</jsp-file>
+		<init-param>
+			<param-name>blog2</param-name>
+			<param-value>study and Share</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Sample JSP</servlet-name>
+		<url-pattern>/funny</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>ListUser JSP</servlet-name>
+		<jsp-file>/ListUser.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ListUser JSP</servlet-name>
+		<url-pattern>/list</url-pattern>
+	</servlet-mapping>
+
+
+
+	<!-- End JSP -->
+</web-app>
