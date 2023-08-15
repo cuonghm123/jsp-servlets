@@ -2,8 +2,6 @@ package ducky.servlets;
 
 import java.io.IOException;
 import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -52,22 +50,17 @@ public class UpdateControl extends HttpServlet {
 		String id = request.getParameter("id");
 		String first_name = request.getParameter("first_name");
 		String last_name = request.getParameter("last_name");
+		//
+		//SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		String date = request.getParameter("date");
-		System.out.println("t " + date);
-		Date dateNew = null;
-		try {
-			dateNew = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(date);
-			
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	    Date date1 =Date.valueOf(date);//converting string into sql date 
+	    
 		String gender = request.getParameter("gender");
 		String address = request.getParameter("address");
 		String room = request.getParameter("room");
 		DatabaseManagement students = new DatabaseManagement();
 		System.out.println("id" + id);
-		students.updateUser(Integer.parseInt(id), first_name, last_name, dateNew, gender, address, room);
+		students.updateUser(Integer.parseInt(id), first_name, last_name, date1, gender, address, room);
 		response.sendRedirect("load");
 	}
 

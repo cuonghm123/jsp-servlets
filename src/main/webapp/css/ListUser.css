@@ -27,3 +27,23 @@ table {
 	text-align: center;
 }
 
+.modal {
+	background-color: #5550507d !important;
+}
+
+.modal-content {
+	position: absolute !important;
+	top: 37%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 30% !important;
+	height: 15% !important;
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: center;
+	justify-content: center;
+}
+
+.modal-content>p {
+	font-weight: 600;
+}

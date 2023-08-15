@@ -34,3 +34,6 @@ form .btn-login{
 form>input.invalid {
   border-color: red;
 }
+.form-message{
+	color: red !important;
+}

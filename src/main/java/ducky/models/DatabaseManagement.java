@@ -2,7 +2,6 @@ package ducky.models;
 
 import java.sql.Connection;
 import java.sql.Date;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ public class DatabaseManagement {
 
 	// check loginDB
 	public Students checkLogin(String username, String password) {
-		boolean isValid = false;
+		
 		try {
 			Connection conn = ConnectDB.connecion();
 			String sql = "select * from customers where username = ? and password = ?";
@@ -56,7 +55,6 @@ public class DatabaseManagement {
 						rs.getString(5), rs.getDate(6), rs.getString(7), rs.getString(8), rs.getString(9));
 				list.add(a);
 			}
-
 			return list;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -80,20 +78,22 @@ public class DatabaseManagement {
 		}
 	}
 	
-	public void insertStudent(String first_name, String last_name,Date date, String gender, String address, String room) {
+	public void insertStudent(String username, String password,String first_name, String last_name, Date date, String gender, String address, String room) {
 		
 		
 		try {
 			Connection conn = ConnectDB.connecion();
-			String query = "INSERT INTO customers (first_name, last_name, date, gender, address, room)\r\n"
-					+ "					VALUES(?, ?, ?, ?, ?, ? )";
+			String query = "INSERT INTO customers (username, password, first_name, last_name, date, gender, address, room)\r\n"
+					+ "					VALUES(?, ?, ?, ?, ?, ?, ?, ? )";
 			PreparedStatement pre = conn.prepareStatement(query);
-			pre.setString(1, first_name);
-			pre.setString(2, last_name);
-			pre.setDate(3, date);
-			pre.setString(4, gender);
-			pre.setString(5, address);
-			pre.setString(6, room);
+			pre.setString(1, username);
+			pre.setString(2, password);
+			pre.setString(3, first_name);
+			pre.setString(4, last_name);
+			pre.setDate(5, date);
+			pre.setString(6, gender);
+			pre.setString(7, address);
+			pre.setString(8, room);
 			pre.executeUpdate();
 			
 		} catch (Exception e) {
@@ -121,7 +121,7 @@ public class DatabaseManagement {
 		
 		return null;
 	}
-	public void updateUser(int id ,String first_name, String last_name,Date date, String gender, String address, String room) {
+	public void updateUser(int id ,String first_name, String last_name, Date date, String gender, String address, String room) {
 		try {
 			Connection conn = ConnectDB.connecion();
 			String query = " UPDATE customers SET first_name = ?,last_name = ?, date = ? ,gender = ?, address = ?, room = ? WHERE id = ? ";
@@ -147,14 +147,10 @@ public class DatabaseManagement {
 		List<Students> list = new ArrayList<>();
 		try {
 			Connection conn = ConnectDB.connecion();
-			System.out.println("allllllll" + txtSearch);
 			String query = "SELECT * FROM customers WHERE first_name LIKE ? or address LIKE ?";
 			PreparedStatement pre = conn.prepareStatement(query);
-			System.out.println("1");
 			pre.setString(1, "%" +txtSearch+ "%");
-			System.out.println("2");
 			pre.setString(2, "%" +txtSearch+ "%");
-			System.out.println("3");
 			
 			
 			rs = pre.executeQuery();

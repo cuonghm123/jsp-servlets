@@ -14,21 +14,22 @@
 </head>
 <body>
 	<div class="container-login">
-		<form action="login" method="post">
+		<form action="login" method="post" id="form-1">
 			<h4>Member Login</h4>
-			<!-- Email input -->
+			<!-- Username input -->
 			<p class="text-danger">${mess}</p>
-			<div class="form-outline mb-4">
-			 <input type="text" id="form2Example1"
-					class="form-control" value="" name="username"  required="required"
-					id="username" /> <label class="form-label" for="form2Example1">Username</label>
+			<div class="form-outline mb-4 form-group">
+				<label class="form-label" for="form2Example2">Username</label> <input
+					type="text" id="null-input" class="form-control" value=""
+					name="username" /> <span class="form-message"></span>
 			</div>
 
+
 			<!-- Password input -->
-			<div class="form-outline mb-4">
-				<input type="password" id="form2Example2" class="form-control"
-					value="" name="password"  required="required" /> <label class="form-label"
-					for="form2Example2">Password</label>
+			<div class="form-outline mb-4 form-group">
+				<label class="form-label" for="form2Example2">Password</label> <input
+					type="password" id="null-input" class="form-control" value=""
+					name="password" /> <span class="form-message"></span>
 			</div>
 
 			<!-- Submit button -->
@@ -36,7 +37,7 @@
 				type="submit" value="Login">Login</button>
 		</form>
 	</div>
-
+	<script src="./js/addJS.js" type="text/javascript"></script>
 
 
 

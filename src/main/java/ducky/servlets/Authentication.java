@@ -1,19 +1,15 @@
 package ducky.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import ducky.models.DatabaseManagement;
-import ducky.models.Image;
 import ducky.models.Students;
 
 /**
@@ -40,28 +36,24 @@ public class Authentication extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 
-		PrintWriter writer = response.getWriter();
+		//PrintWriter writer = response.getWriter();
 		DatabaseManagement dm = new DatabaseManagement();
 		Students a = dm.checkLogin(username, password);
-		
-		
+	
 		if (a == null) {
-
+			
 			request.setAttribute("mess", "Wrong user or password !");
 			request.getRequestDispatcher("Login.jsp").forward(request, response);
 			
 			
 		} else {
 			HttpSession session = request.getSession();
-			// session qly attribute hay cho req
+			// session qly attribute thay cho req
 			session.setAttribute("acc", dm.checkLogin(username, password));
-
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/load");
 			dispatcher.forward(request, response);
 			System.out.println("Login Succsess!");
 		}
-
-
 	}
 
 }

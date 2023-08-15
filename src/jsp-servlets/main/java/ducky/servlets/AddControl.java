@@ -2,7 +2,6 @@ package ducky.servlets;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;

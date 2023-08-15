@@ -13,60 +13,71 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<!-- <form action="login" method="post">
-		UserName: <input type="text" value="" name="username"/>
-		Password: <input type="password" value="" name="password"/>
-		<input type="submit" value="Login">
-	</form> -->
 
-	<div class="container-login">
-		<!-- /Website/add -->
-		<form action="/Website/add" method="post" name="myform" >
-			<h4>Add new user</h4>
-			<!-- Email input -->
-			<div class="form-outline mb-4">
-				<label class="form-label" for="form2Example1">FirstName</label> <input
-					type="text" id="form2Example1" class="form-control" value=""
-					name="first_name" required="required"/>
-			</div>
-			<div class="form-outline mb-4">
-				<label class="form-label" for="form2Example1">LastName</label> <input
-					type="text" id="form2Example1" class="form-control" value=""
-					name="last_name" required="required" />
-			</div>
-			<div class="form-outline mb-4">
-				<label class="form-label" for="form2Example1">Date</label> <input
-					type="date" id="form2Example1" class="form-control" value=""
-					name="date" required="required" />
-			</div>
-			<div class="form-outline mb-4">
+	<div class="main">
+		<a class="btn btn-primary btn-back" href="../load">Back</a>
+		<form action="/Website/add" method="post" class="form" id="form-1">
+			<h3 class="heading">Add new User</h3>
 
-				<label class="form-label" for="form2Example1">Gender</label>
-				<div class="gender">
-					<input type="radio" id="form2Example1" class="form-control"
-						value="1" name="gender" required="required" />Nu
-						 <input type="radio"
-						id="form2Example1" class="form-control" value="0" name="gender" required="required"/>Nam
+			<div class="spacer"></div>
 
-				</div>
+			<div class="form-group">
+				<label for="fullname" class="form-label">First Name</label> <input
+					id="null-input" name="first_name" type="text" class="form-control"
+					value=""> <span class="form-message"></span>
+			</div>
+			<div class="form-group">
+				<label for="fullname" class="form-label">First Name</label> <input
+					id="null-input" name="last_name" type="text" class="form-control"
+					value=""> <span class="form-message"></span>
+			</div>
 
+			<div class="form-group">
+				<label for="email" class="form-label">Date</label> <input
+					id="null-input" value="" name="date" type="date"
+					class="form-control"> <span class="form-message"></span>
 			</div>
-			<div class="form-outline mb-4">
-				<label class="form-label" for="form2Example1">Address</label> <input
-					type="text" id="form2Example1" class="form-control" value=""
-					name="address" required="required" />
+			<div class="form-group gennder-cl" id="null-input">
+				<label for="email" class="form-label">Gender</label> <input
+					id="gender" name="gender" type="radio" class="form-control"
+					value="1">
+				<p>Nu</p>
+				<input id="gender" name="gender" type="radio" class="form-control"
+					value="0">
+				<p>Nam</p>
+				<span class="form-message"></span>
 			</div>
-			<div class="form-outline mb-4">
-				<label class="form-label" for="form2Example1">Room</label> <input
-					type="text" id="form2Example1" class="form-control" value=""
-					name="room" required="required" />
+			<div class="form-group ">
+				<label for="email" class="form-label">Address</label> <input
+					id="null-input" name="address" type="text" class="form-control"
+					value=""> <span class="form-message"></span>
 			</div>
-			<!-- Submit button -->
-			<button class="btn btn-success btn-block mb-4 btn-login btn-add"
-				type="submit">Add new</button>
+
+			<div class="form-group gennder-cl" id="null-input">
+				<label for="email" class="form-label">Room</label> <input
+					id="gender" name="room" type="radio" class="form-control" value="3">
+				<p>Admin</p>
+
+				<input id="gender" name="room" type="radio" class="form-control"
+					value="4">
+				<p>Client</p>
+				<span class="form-message"></span>
+			</div>
+			<div class="form-group">
+				<label for="fullname" class="form-label">Username</label> <input
+					id="null-input" name="username" type="text" class="form-control"
+					value=""> <span class="form-message"></span>
+			</div>
+			<div class="form-group">
+				<label for="password" class="form-label">password</label> <input
+					id="null-input" name="password" type="password" value=""
+					class="form-control"> <span class="form-message"></span>
+			</div>
+
+			<button type="submit" class="form-submit">Add</button>
 		</form>
-	</div>
 
+	</div>
 
 
 
@@ -86,43 +97,9 @@
 		crossorigin="anonymous"></script>
 
 
-	<script type="text/javascript">
-	// Truy cập vào các ô input
-	const fName = document.getElementsByClassName('first_name');
-	const lName = document.getElementsByClassName('last_name');
-	const date = document.getElementsByClassName('date');
-	const gender = document.getElementsByClassName('gender');
-	const address = document.getElementsByClassName('address');
-	const room = document.getElementsByClassName('room');
-	
-	const btnRegister = document.getElementsByClassName('btn-add');
 
-	btnRegister.addEventListener('click', function () {
-	    let isValid = checkValidate();
 
-	    if (isValid) {
-	        alert('Gửi đăng ký thành công');
-	    }
-	});
-	
-	
-	function checkValidate() {
-	    let nameValue = fName.value;
-	    let emailValue = emailEle.value;
-	    let phoneValue = phoneEle.value;
-
-	    let isCheck = true;
-
-	    // Kiểm tra trường username
-	    if (nameValue == '') {
-	        setError(fName, 'Tên không được để trống');
-	        isCheck = false;
-	    } else {
-	        setSuccess(fName);
-	    }
-		return isCheck;    
-	}
-	</script>
+	<script src="../js/addJS.js" type="text/javascript"></script>
 
 </body>
 </html>

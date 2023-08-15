@@ -12,13 +12,13 @@ public class Students {
 	private String gender;
 	private String address;
 	private String room;
-
+	
 	public Students() {
 
 	}
 
 	public Students(int id, String username, String password, String first_name, String last_name, Date date,
-			String gender ,String address, String room) {
+			String gender ,String address, String room ) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
@@ -30,6 +30,7 @@ public class Students {
 		this.room = room;
 	}
 
+	
 	public int getId() {
 		return id;
 	}
@@ -58,7 +59,7 @@ public class Students {
 		return first_name;
 	}
 
-	public void setFrist_name(String first_name) {
+	public void setFirst_name(String first_name) {
 		this.first_name = first_name;
 	}
 
@@ -101,6 +102,7 @@ public class Students {
 	public void setRoom(String room) {
 		this.room = room;
 	}
+
 
 	@Override
 	public String toString() {
